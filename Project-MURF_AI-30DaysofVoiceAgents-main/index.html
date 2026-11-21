@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice AI Chat Agent</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="container">
+        <h1>🎙️ Voice AI Chat Agent</h1>
+
+        <!-- Persona and translator language -->
+        <div class="controls">
+            <label class="field">
+                <span>Persona</span>
+                <select id="personaSelect" disabled>
+                    <option>Loading…</option>
+                </select>
+            </label>
+            <label class="field" id="languageField" hidden>
+                <span>Translate into</span>
+                <select id="languageSelect"></select>
+            </label>
+        </div>
+        <p id="personaDescription" class="persona-description"></p>
+
+        <!-- Conversation -->
+        <div id="chat" class="chat" aria-live="polite">
+            <p id="chatEmpty" class="chat-empty">
+                Click <strong>Start conversation</strong> and just talk.<br />
+                I'll reply after you've been quiet for 3 seconds, and you can interrupt me any time.
+            </p>
+        </div>
+
+        <!-- Status and technical error details -->
+        <div id="status" class="status"></div>
+        <div id="issueBox" class="issue-box" hidden>
+            <button id="issueToggle" class="issue-toggle" type="button" aria-expanded="false">View issue</button>
+            <p id="issueDetails" class="issue-details" hidden></p>
+        </div>
+
+        <!-- Conversation controls -->
+        <div class="actions">
+            <button id="recordBtn" type="button">Start conversation</button>
+            <button id="stopBtn" type="button" disabled>End conversation</button>
+        </div>
+        <p class="hint">🎧 Tip: headphones give the best results, so the mic doesn't pick up my voice.</p>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
