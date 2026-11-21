@@ -1,4 +1,4 @@
-**Project demo:** https://drive.google.com/file/d/1n05drrGfnjZDWhRidq2_erRqIixkiJLu/view?usp=drivesdk
+**Live app:** https://interactive-ai-voice-agent.onrender.com/
 
 # Voice AI Chat Agent
 
@@ -16,7 +16,18 @@ A hands-free voice assistant that runs in the browser. It is built with **FastAP
 - **Date and time awareness:** the assistant knows the current date and time in the user's time zone.
 - **Clear error messages:** short messages, with a *View issue* link for technical details.
 
+## Get the API Keys
+
+| Service | Used for | Get a key |
+| --- | --- | --- |
+| AssemblyAI | Speech-to-text | https://www.assemblyai.com/app/api-keys |
+| Google Gemini | AI replies | https://aistudio.google.com/app/apikey |
+| Murf | Text-to-speech | https://murf.ai/api/dashboard |
+| SerpAPI | Web search (Web Researcher only, optional) | https://serpapi.com/manage-api-key |
+
 ## How to Run
+
+The code is in the `Project-MURF_AI-30DaysofVoiceAgents-main/` folder, so run these commands from there.
 
 1. Install the dependencies:
    ```bash
@@ -44,9 +55,19 @@ Headphones are recommended for the best results.
 ## Deployment (Render)
 
 1. Push the repository to GitHub.
-2. On [Render](https://render.com), choose **New → Blueprint** and select the repository. Render reads `render.yaml`.
-3. Enter the four API keys when prompted, then deploy.
-4. Open the generated `https://<name>.onrender.com` address. The backend serves the web page, so no separate frontend hosting is needed.
+2. On [Render](https://render.com), choose **New → Web Service** and select the repository.
+3. Use these settings:
+
+   | Setting | Value |
+   | --- | --- |
+   | Root Directory | `Project-MURF_AI-30DaysofVoiceAgents-main` |
+   | Runtime | Python 3 |
+   | Build Command | `pip install -r requirements.txt` |
+   | Start Command | `uvicorn main:app --host 0.0.0.0 --port $PORT` |
+   | Health Check Path | `/personas` |
+
+4. Add the environment variables `ASSEMBLYAI_API_KEY`, `GEMINI_API_KEY`, `MURF_API_KEY`, `SERPAPI_API_KEY` (optional) and `PYTHON_VERSION` = `3.11.3`, then deploy.
+5. Open the generated `https://<name>.onrender.com` address. The backend serves the web page, so no separate frontend hosting is needed.
 
 The free plan sleeps after 15 minutes of inactivity, so the first visit after that takes about 30–50 seconds to load.
 
