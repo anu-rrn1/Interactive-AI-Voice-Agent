@@ -1,7 +1,5 @@
 **Live app:** https://interactive-ai-voice-agent.onrender.com/
 
-**Project demo:** https://drive.google.com/file/d/1n05drrGfnjZDWhRidq2_erRqIixkiJLu/view?usp=drivesdk
-
 # Voice AI Chat Agent
 
 A hands-free voice assistant that runs in the browser. It is built with **FastAPI**, **AssemblyAI** (speech-to-text), **Google Gemini** (AI replies), **Murf** (text-to-speech) and **SerpAPI** (web search).
